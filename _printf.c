@@ -6,7 +6,9 @@
 */
 int _printf(const char *format, ...)
 {
-	int num_arg = 0, char *str, char a;
+	int num_arg = 0;
+	char *str;
+	char a;
 	va_list args;
 
 	if (format == NULL)
@@ -27,23 +29,21 @@ int _printf(const char *format, ...)
 			case '\0':
 				break;
 			case 'c':
-				{
-					a = va_arg(args, int);
-					write(1, &a, 1);
-					num_arg++;
+				{a = va_arg(args, int), write(1, &a, 1), num_arg++;
+					continue;
 				}
 			case 's':
-				{
-					str = va_arg(args, char*);
-					write(1, str, strlen(str)), num_arg += strlen(str);
+				{str = va_arg(args, char*), write(1, str, strlen(str));
+				num_arg += strlen(str);
+					continue;
 				}
 			case '%':
-				{
-					write(1, format, 1), num_arg++;
+				{write(1, format, 1), num_arg++;
 				}
 			}
 		}
 		format++;
 	}
-	va_end(args), return (num_arg);
+	va_end(args);
+	return (num_arg);
 }
