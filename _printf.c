@@ -24,6 +24,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			format++;
 			switch (*format)
 			{
 			case '\0':
