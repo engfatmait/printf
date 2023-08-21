@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	char a;
 	va_list args;
 
-	if (!format)
+	if (!format || format[0] == '%' && !(format + 1))
 		return (-1);
 	va_start(args, format);
 	while (*format)
