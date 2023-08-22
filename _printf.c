@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-			case '\0': return (-1)
+			case '\0': return (-1);
 				break;
 			case 'c':
 				{a = va_arg(args, int), write(1, &a, 1), num_arg++;
