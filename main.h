@@ -6,7 +6,8 @@
 #include <unistd.h>
 int _printf(const char *format, ...);
 int _strlen(char *s);
-
+int handle_str(va_list args);
+int handle_def(const char *format);
 
 
 

@@ -33,14 +33,13 @@ int _printf(const char *format, ...)
 					break;
 				}
 			case 's':
-				{str = va_arg(args, char*), write(1, str, _strlen(str));
-					num_arg += _strlen(str);
+				num_arg = handle_str(args);
 					break;
 				}
 			case '%':
 				{  write(1, format, 1), num_arg++;
 					break;
-				}
+			default: num_arg = handle_def(format); 
 			}
 		}
 	format++;
