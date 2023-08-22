@@ -26,15 +26,15 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-			case '\0':
+			case '\0': return (-1)
 				break;
 			case 'c':
 				{a = va_arg(args, int), write(1, &a, 1), num_arg++;
 					break;
 				}
 			case 's':
-				{str = va_arg(args, char*), write(1, str, strlen(str));
-					num_arg += strlen(str);
+				{str = va_arg(args, char*), write(1, str, _strlen(str));
+					num_arg += _strlen(str);
 					break;
 				}
 			case '%':
