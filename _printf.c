@@ -32,30 +32,20 @@ int _printf(const char *format, ...)
 				break;
 			case 'c':
 				{
-					a = va_arg(args, int), write(1, &a, 1), num_arg++;
-
-			{case '\0': return (-1);
-				break;
-			case 'c':
 				a = va_arg(args, int), write(1, &a, 1), num_arg++;
 					break;
+				}
 			case 's':
 				{
 					str = va_arg(args, char*), write(1, str, strlen(str)); num_arg += strlen(str);
 					break;
 			       	}
 			case '%':
-
 				{
 					  write(1, format, 1), num_arg++;
 					  break;
 				}
-
-				write(1, format, 1), num_arg++;
-					break;
-			case ' ': return (-1);
-					break;
-			}
+		}
 		}
 	format++;
 	}
