@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 				}
 			case '%':
 				{  write(1, format, 1), num_arg++;
-					  break;
+					break;
 				}
 			}
 		}
