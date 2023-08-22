@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	int num_arg = 0;
-	char *str, a;
+	char a;
 	va_list args;
 
 	va_start(args, format);
@@ -29,15 +29,13 @@ int _printf(const char *format, ...)
 			case '\0': return (-1);
 				break;
 			case 'c':
-				{a = va_arg(args, int), write(1, &a, 1), num_arg++;
+				a = va_arg(args, int), write(1, &a, 1), num_arg++;
 					break;
-				}
 			case 's':
 				num_arg = handle_str(args);
 					break;
-				}
 			case '%':
-				{  write(1, format, 1), num_arg++;
+				 write(1, format, 1), num_arg++;
 					break;
 			default: num_arg = handle_def(format); 
 			}
