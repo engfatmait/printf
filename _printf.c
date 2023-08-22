@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 				}
 			case 's':
 				{str = va_arg(args, char*), write(1, str, strlen(str));
-					num_arg += strlen(str);
+					num_arg += strlen(str) - 1;
 					break;
 				}
 			case '%':
