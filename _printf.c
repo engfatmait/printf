@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf - function that produces output according to a format.
  * @format: a character string
@@ -31,21 +32,18 @@ int _printf(const char *format, ...)
 			case '\0':
 				break;
 			case 'c':
-				{
-				a = va_arg(args, int), write(1, &a, 1), num_arg++;
+				{a = va_arg(args, int), write(1, &a, 1), num_arg++;
 					break;
 				}
 			case 's':
-				{
-					str = va_arg(args, char*), write(1, str, strlen(str)); num_arg += strlen(str);
+				{str = va_arg(args, char*), write(1, str, strlen(str)); num_arg += strlen(str);
 					break;
-			       	}
+				}
 			case '%':
-				{
-					  write(1, format, 1), num_arg++;
+				{  write(1, format, 1), num_arg++;
 					  break;
 				}
-		}
+			}
 		}
 	format++;
 	}
