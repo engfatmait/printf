@@ -1,4 +1,3 @@
-#include <main.h>
 /**
  * _strlen - returns the length of string
  * @s: input string
@@ -6,7 +5,7 @@
 */
 int _strlen(char *s)
 {
-	int len = 0;
+	unsigned int len = 0;
 
 	while (s[len] != '\0')
 	{
