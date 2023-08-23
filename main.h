@@ -8,6 +8,7 @@ int _printf(const char *format, ...);
 int _strlen(char *s);
 int handle_str(va_list args);
 int handle_def(const char *format);
+int handle_c(va_list arg);
 
 
 

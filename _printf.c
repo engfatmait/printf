@@ -8,7 +8,6 @@
 int _printf(const char *format, ...)
 {
 	int num_arg = 0;
-	char a;
 	va_list args;
 
 	va_start(args, format);
@@ -29,7 +28,7 @@ int _printf(const char *format, ...)
 			case '\0': return (-1);
 				break;
 			case 'c':
-				a = va_arg(args, int), write(1, &a, 1), num_arg++;
+				num_arg = handle_c(args);
 					break;
 			case 's':
 				num_arg = handle_str(args);
@@ -37,7 +36,8 @@ int _printf(const char *format, ...)
 			case '%':
 				 write(1, format, 1), num_arg++;
 					break;
-			default: num_arg = handle_def(format); 
+			default:
+				num_arg = handle_def(format);
 			}
 		}
 	format++;
