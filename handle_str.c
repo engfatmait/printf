@@ -15,6 +15,7 @@ int handle_str(va_list args)
 	{
 		write(1, buf, 6);
 		count = 6;
+		return (-1); 
 	}
 	else
 	{
