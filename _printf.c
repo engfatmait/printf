@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
-	while (*format)
+	while (*format != '\0' && format != NULL)
 	{
 		if (*format != '%')
 		{
@@ -28,16 +28,16 @@ int _printf(const char *format, ...)
 			case '\0': return (-1);
 				break;
 			case 'c':
-				num_arg = handle_c(args);
+				num_arg += handle_c(args);
 					break;
 			case 's':
-				num_arg = handle_str(args);
+				num_arg += handle_str(args);
 					break;
 			case '%':
 				 write(1, format, 1), num_arg++;
 					break;
 			default:
-				num_arg = handle_def(format);
+				num_arg += handle_def(format);
 			}
 		}
 	format++;
