@@ -10,5 +10,5 @@ int handle_c(va_list arg)
 
 	a = va_arg(arg, int);
 	write(1, &a, 1);
-	return (0);
+	return (1);
 }
